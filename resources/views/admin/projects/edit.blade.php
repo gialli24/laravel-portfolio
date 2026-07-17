@@ -1,0 +1,45 @@
+@extends('layouts.admin')
+
+@section('title', 'Projects')
+
+@section('content')
+<div class="container">
+
+    <div class="d-flex align-items-center justify-content-between my-3">
+        <h2 class="fs-4 text-secondary my-4">
+            Edit Project
+        </h2>
+    </div>
+
+    {{-- Create Project Form --}}
+    <form action="{{ route('projects.update', $project) }}" method="POST">
+        @csrf
+
+        @method('PUT')
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Project Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $project->name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="customer" class="form-label">Project Customer</label>
+            <input type="text" class="form-control" id="customer" name="customer" value="{{ $project->customer }}"
+                required>
+        </div>
+
+        <div class="mb-3">
+            <label for="period" class="form-label">Project Period</label>
+            <input type="text" class="form-control" id="period" name="period" value="{{ $project->period }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Project Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"
+                required>{{ $project->description }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Project</button>
+    </form>
+</div>
+@endsection

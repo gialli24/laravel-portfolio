@@ -3,33 +3,32 @@
 @section('title', 'Projects')
 
 @section('content')
-<main class="main-content">
+<div class="container">
 
-    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+    <div class="d-flex align-items-center justify-content-between my-3">
+        <h2 class="fs-4 text-secondary my-4">
+            {{ $project->name }}
+        </h2>
+
         <div>
-            <h1 class="h3 fw-bold mb-1">Dettagli Progetto</h1>
-            <p class="text-muted m-0">Visualizza e gestisci i dettagli del progetto selezionato.</p>
+            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-outline-primary me-2">Edit</a>
+
+            <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger"
+                    onclick="return confirm('Are you sure you want to delete this project?')">Delete</button>
+            </form>
         </div>
     </div>
 
-    <div class="card-custom p-4 mb-4">
-        <h5 class="fw-bold mb-3">Informazioni Progetto</h5>
-        <p><strong>Nome:</strong> {{ $project->name }}</p>
-        <p><strong>Cliente:</strong> {{ $project->customer }}</p>
-        <p><strong>Periodo:</strong> {{ $project->period }}</p>
-        <p><strong>Descrizione:</strong> {{ $project->description }}</p>
+    {{-- Project Details --}}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5>{{ $project->customer }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Period: {{ $project->period }}</h6>
+            <p class="card-text">{{ $project->description }}</p>
+        </div>
     </div>
-
-    <div class="card-custom p-4">
-        <h5 class="fw-bold mb-3">Azioni</h5>
-        <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-outline-primary me-2">Modifica Progetto</a>
-        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-outline-danger"
-                onclick="return confirm('Sei sicuro di voler eliminare questo progetto?')">Elimina Progetto</button>
-        </form>
-    </div>
-
-</main>
+</div>
 @endsection
