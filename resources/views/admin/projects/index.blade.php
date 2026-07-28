@@ -21,6 +21,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Category</th>
                 <th>Customer</th>
                 <th>Period</th>
                 <th>Description</th>
@@ -32,6 +33,7 @@
             <tr>
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->name }}</td>
+                <td>{{ $project->type->name }}</td>
                 <td>{{ $project->customer }}</td>
                 <td>{{ $project->period }}</td>
                 <td>{{ $project->description }}</td>
