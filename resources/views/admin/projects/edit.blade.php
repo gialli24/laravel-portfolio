@@ -23,6 +23,17 @@
         </div>
 
         <div class="mb-3">
+            <label for="type" class="form-label">Project Type</label>
+            <select name="type_id" class="form-control" id="type" required>
+                @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }}>
+                    {{ $type->name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-3">
             <label for="customer" class="form-label">Project Customer</label>
             <input type="text" class="form-control" id="customer" name="customer" value="{{ $project->customer }}"
                 required>

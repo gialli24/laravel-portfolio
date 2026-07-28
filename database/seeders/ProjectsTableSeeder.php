@@ -27,7 +27,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->period = $faker->year() . ' - ' . $faker->year();
             $newProject->description = $faker->paragraph();
 
-            $newProject->type_id = rand(1,4);
+            $newProject->type_id = rand(2,4);
 
             $newProject->save();
         }

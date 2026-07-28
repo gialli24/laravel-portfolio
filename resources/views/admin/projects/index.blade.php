@@ -21,7 +21,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Category</th>
+                <th>Type</th>
                 <th>Customer</th>
                 <th>Period</th>
                 <th>Description</th>
