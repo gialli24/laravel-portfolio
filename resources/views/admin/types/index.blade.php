@@ -38,6 +38,9 @@
                     {{-- Edit --}}
                     <a href="{{ route('types.edit', $type->id) }}" class="btn btn-outline-secondary me-2">Edit</a>
 
+
+                    @if ($type->id !== 1) {{-- Prevent deletion of the default type with ID 1 --}}
+
                     {{-- Delete --}}
                     <form action="{{ route('types.destroy', $type->id) }}" method="POST" class="d-inline">
                         @csrf
@@ -45,6 +48,9 @@
                         <button type="submit" class="btn btn-outline-danger"
                             onclick="return confirm('Are you sure you want to delete this type?')">Delete</button>
                     </form>
+
+                    @endif
+
                 </td>
             </tr>
             @endforeach
