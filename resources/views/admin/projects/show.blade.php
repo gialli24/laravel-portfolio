@@ -25,8 +25,13 @@
     {{-- Project Details --}}
     <div class="card mb-3">
         <div class="card-body">
+            <div>
+                @foreach ($project->technologies as $technology)
+                <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name
+                    }}</span>
+                @endforeach
+            </div>
             <p>{{ $project->type->name }}</p>
-            <p>{{ $project->technologies->pluck('name')->implode(', ') }}</p>
             <h5>{{ $project->customer }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">Period: {{ $project->period }}</h6>
             <p class="card-text">{{ $project->description }}</p>

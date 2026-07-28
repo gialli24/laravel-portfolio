@@ -35,7 +35,12 @@
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->name }}</td>
                 <td>{{ $project->type->name }}</td>
-                <td>{{ $project->technologies->pluck('name')->implode(', ') }}</td>
+                <td>
+                    @foreach ($project->technologies as $technology)
+                    <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name
+                        }}</span>
+                    @endforeach
+                </td>
                 <td>{{ $project->customer }}</td>
                 <td>{{ $project->period }}</td>
                 <td>{{ $project->description }}</td>
