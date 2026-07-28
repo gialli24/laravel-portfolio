@@ -22,6 +22,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Type</th>
+                <th>Technologies</th>
                 <th>Customer</th>
                 <th>Period</th>
                 <th>Description</th>
@@ -34,6 +35,7 @@
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->name }}</td>
                 <td>{{ $project->type->name }}</td>
+                <td>{{ $project->technologies->pluck('name')->implode(', ') }}</td>
                 <td>{{ $project->customer }}</td>
                 <td>{{ $project->period }}</td>
                 <td>{{ $project->description }}</td>
