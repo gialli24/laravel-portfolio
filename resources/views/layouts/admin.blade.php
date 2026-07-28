@@ -55,6 +55,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/types') }}">Types</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/technologies') }}">Technologies</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
